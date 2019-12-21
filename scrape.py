@@ -71,8 +71,8 @@ def main():
         # print('login_pay load', login_payload)
 
         resp = session.post('https://family.axioscloud.it/Secret/RELogin.aspx', data=login_payload, headers=headers)
-        # print(resp.status_code)
-        # print(resp.text)
+        print(resp.status_code)
+        print(resp.text)
 
 
 
@@ -101,8 +101,8 @@ def main():
         # print('payload', payload)
 
         resp = session.post(FAMILY_URL, data=payload, headers=headers)
-        # print(resp.status_code)
-        # print(resp.text)
+        print(resp.status_code)
+        print(resp.text)
 
         tree = html.fromstring(resp.text)
 
