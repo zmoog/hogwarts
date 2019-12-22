@@ -16,7 +16,7 @@ class GradeScraper:
 
     def all(self, student_ids: List[str]) -> Mapping[str, List[Grade]]:
         """
-        Returns all grades for the student.
+        Returns all grades for each student the the ``student_ids`` list.
         """
         pages = self.navigator.fetch_red(student_ids)
 
