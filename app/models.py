@@ -5,7 +5,7 @@ from dataclasses import dataclass
 @dataclass
 class Grade:
     when: str
-    material: str
+    subject: str
     type: str
     value: str
     comment: str

@@ -16,7 +16,7 @@ def extract_grades(page) -> List[Grade]:
         tds = tr.xpath('td')
         grades.append(Grade(
             tds[0].text_content(), # when
-            tds[1].text_content(), # material
+            tds[1].text_content(), # subject
             tds[2].text_content(), # type
             tds[3].text_content(), # value
             tds[4].text_content(), # comment

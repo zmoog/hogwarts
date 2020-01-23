@@ -20,8 +20,6 @@ class GradeScraper:
         """
         pages = self.navigator.fetch_red(student_ids)
 
-        # print(pages)
-
         return dict(map(lambda kv: (kv[0],  extract_grades(kv[1])), pages.items()))
         # grades = parsers.extract_grades(page)
 

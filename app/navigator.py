@@ -116,7 +116,6 @@ class Navigator:
 
         resp = session.post(LOGIN_URL, data=login_payload, headers=headers)
         tree = html.fromstring(resp.text)
-        print(resp.text)
 
         viewstate = tree.xpath('//input[@id="__VIEWSTATE"]')
         viewstategenerator = tree.xpath('//input[@id="__VIEWSTATEGENERATOR"]')
