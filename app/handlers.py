@@ -32,5 +32,5 @@ class PublishLatestGradesHandler:
             self.notifier.send(
                 template.render(
                     student_id=student_id,
-                    grades=grades[:3]
+                    grades=grades[:5]
             ))
