@@ -102,3 +102,19 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# local environment settings
+env.sh
+
+# Jet Brains IDEs
+.idea
+
+# Serverless
+node_modules
+.serverless
+
+# macOS
+.DS_Store
+
+# local only resources
+local_*

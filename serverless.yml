@@ -1,0 +1,40 @@
+service: hogwards-api
+
+provider:
+  name: aws
+  runtime: python3.7
+  memorySize: 128
+  stage: ${opt:stage, self:custom.defaultStage}
+  region: ${opt:region, self:custom.defaultRegion}
+  logRetentionInDays: 30
+  environment:
+    AXIOS_CUSTOMER_ID: "${ssm:/hogwarts-api/dev/axios-customer-id~true}"
+    AXIOS_USERNAME: "${ssm:/hogwarts-api/dev/axios-username~true}"
+    AXIOS_PASSWORD: "${ssm:/hogwarts-api/dev/axios-password~true}"
+    TELEGRAM_TOKEN: "${ssm:/hogwarts-api/dev/telegram-api-token~true}"
+    TELEGRAM_GROUP_CHAT_ID: "${ssm:/hogwarts-api/dev/telegram-group-chat-id~true}"
+  tags:
+    Environment: ${self:provider.stage}
+    ApplicationName: ${self:custom.tags.ApplicationName}
+
+custom:
+  defaultStage: dev
+  defaultRegion: eu-west-1
+  tags:
+    ApplicationName: hogwards-api  
+  pythonRequirements:
+    dockerizePip: non-linux
+    
+functions:
+  sync:
+    handler: functions/publish_latest_grades.handler
+    events:
+      - schedule:
+          name: ${self:service}-${opt:stage, self:provider.stage}-publish-latest-grades
+          # rate: cron(0/10 7-16 ? * MON-FRI *) # Run every 10 minutes Monday through Friday between 7:00 am and 3:50 pm (UTC)
+          rate: cron(0 16 ? * MON-FRI *)
+          # disable until we're ready to test with real sensors
+          enabled: true
+
+plugins:
+  - serverless-python-requirements

@@ -1,0 +1,29 @@
+{
+  "name": "hogwarts",
+  "version": "0.1.0",
+  "description": "Scrape the school's websites for homework and grades.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zmoog/hogwarts.git"
+  },
+  "keywords": [],
+  "author": "Maurizio Branca",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zmoog/hogwarts/issues"
+  },
+  "homepage": "https://github.com/zmoog/hogwarts#readme",
+  "devDependencies": {
+    "serverless": "^1.61.3",
+    "serverless-python-requirements": "^5.0.1"
+  },
+  "dependencies": {}
+}
