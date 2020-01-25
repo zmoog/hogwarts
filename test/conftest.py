@@ -3,6 +3,8 @@ import pytest
 
 from app.models import Credentials
 from app.navigator import Navigator
+from app.scrapers import GradeScraper
+from app.repositories.student import StudentRepository
 
 
 @pytest.fixture(scope='session')
@@ -17,6 +19,16 @@ def credentials() -> Credentials:
 @pytest.fixture(scope='function')
 def navigator(credentials: Credentials) -> Navigator:
     return Navigator(credentials)
+
+
+@pytest.fixture(scope='function')
+def grade_scraper(navigator: Navigator) -> GradeScraper:
+    return GradeScraper(navigator)
+
+
+@pytest.fixture(scope='function')
+def student_repository() -> StudentRepository:
+    return StudentRepository()
 
 
 @pytest.fixture(scope='function')

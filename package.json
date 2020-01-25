@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/zmoog/hogwarts#readme",
   "devDependencies": {
-    "serverless": "^1.61.3"
-  }
+    "serverless": "^1.61.3",
+    "serverless-python-requirements": "^5.0.1"
+  },
+  "dependencies": {}
 }

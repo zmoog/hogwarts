@@ -1,6 +1,9 @@
 from datetime import date
 from dataclasses import dataclass
 
+@dataclass
+class Student:
+    id: str
 
 @dataclass
 class Grade:
