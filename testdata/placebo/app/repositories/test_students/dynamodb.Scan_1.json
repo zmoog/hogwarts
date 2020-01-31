@@ -1,0 +1,83 @@
+{
+    "status_code": 200,
+    "data": {
+        "Items": [
+            {
+                "grades": {
+                    "L": [
+                        {
+                            "M": {
+                                "comment": {
+                                    "S": "bla bla"
+                                },
+                                "teacher": {
+                                    "S": "Actis Dato Cinzia"
+                                },
+                                "type": {
+                                    "S": "Orale"
+                                },
+                                "when": {
+                                    "S": "23/01/2020"
+                                },
+                                "subject": {
+                                    "S": "INGLESE"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "updated_at": {
+                    "S": "2020-01-26T09:05:35.692104"
+                },
+                "sk": {
+                    "S": "2020-01-26T09:05:35.692104"
+                },
+                "last_name": {
+                    "S": "Branca"
+                },
+                "pk": {
+                    "S": "student:00002138"
+                },
+                "first_name": {
+                    "S": "Tommaso"
+                }
+            },
+            {
+                "grades": {
+                    "M": {}
+                },
+                "updated_at": {
+                    "S": "2020-01-26T09:05:35.692104"
+                },
+                "sk": {
+                    "S": "2020-01-26T09:05:35.692104"
+                },
+                "last_name": {
+                    "S": "Branca"
+                },
+                "pk": {
+                    "S": "student:00002401"
+                },
+                "first_name": {
+                    "S": "Filippo"
+                }
+            }
+        ],
+        "Count": 2,
+        "ScannedCount": 2,
+        "ResponseMetadata": {
+            "RequestId": "2IPRE4FSSKOOT2PPNV1UT6O0QVVV4KQNSO5AEMVJF66Q9ASUAAJG",
+            "HTTPStatusCode": 200,
+            "HTTPHeaders": {
+                "server": "Server",
+                "date": "Sun, 26 Jan 2020 08:21:25 GMT",
+                "content-type": "application/x-amz-json-1.0",
+                "content-length": "568",
+                "connection": "keep-alive",
+                "x-amzn-requestid": "2IPRE4FSSKOOT2PPNV1UT6O0QVVV4KQNSO5AEMVJF66Q9ASUAAJG",
+                "x-amz-crc32": "1730655179"
+            },
+            "RetryAttempts": 0
+        }
+    }
+}

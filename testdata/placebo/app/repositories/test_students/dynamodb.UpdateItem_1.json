@@ -1,0 +1,19 @@
+{
+    "status_code": 200,
+    "data": {
+        "ResponseMetadata": {
+            "RequestId": "JQ156I7EV31O4AGES7ODKM4TK7VV4KQNSO5AEMVJF66Q9ASUAAJG",
+            "HTTPStatusCode": 200,
+            "HTTPHeaders": {
+                "server": "Server",
+                "date": "Sun, 26 Jan 2020 08:21:25 GMT",
+                "content-type": "application/x-amz-json-1.0",
+                "content-length": "2",
+                "connection": "keep-alive",
+                "x-amzn-requestid": "JQ156I7EV31O4AGES7ODKM4TK7VV4KQNSO5AEMVJF66Q9ASUAAJG",
+                "x-amz-crc32": "2745614147"
+            },
+            "RetryAttempts": 0
+        }
+    }
+}
