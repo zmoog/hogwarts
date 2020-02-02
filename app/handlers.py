@@ -31,18 +31,18 @@ class PublishLatestGradesHandler:
 
         for student in students: 
 
-            old_grades = student.grades
-            new_grades = results[student.id]
+            yesterdays_grades = student.grades
+            todays_grades = results[student.id]
 
-            diff_grades = list(set(new_grades) - set(old_grades))
+            new_grades = list(set(todays_grades) - set(yesterdays_grades))
 
             self.notifier.send(
                 template.render(
                     student=student,
-                    grades=diff_grades
+                    grades=new_grades
             ))
             
-            if diff_grades:
+            if new_grades:
                 # store latest grades for future reference
-                student.grades = new_grades
+                student.grades += new_grades
                 self.repository.update(student)
