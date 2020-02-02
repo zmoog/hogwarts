@@ -16,6 +16,3 @@ class TelegramNotifier:
             f'https://api.telegram.org/{self.token}/sendMessage',
             params=params
         )
-
-        print(r)
-       

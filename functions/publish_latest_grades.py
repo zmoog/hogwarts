@@ -8,7 +8,7 @@ from app.repositories.student import StudentRepository
 from app.scrapers import Navigator
 from app.scrapers import Credentials
 from app.scrapers import GradeScraper
-from app.notification.pushover import PushoverNotifier
+# from app.notification.pushover import PushoverNotifier
 from app.notification.telegram import TelegramNotifier
 from app import settings
 
@@ -19,7 +19,7 @@ creds = Credentials(
 )
 
 publisher = PublishLatestGradesHandler(
-    StudentRepository(),
+    StudentRepository(settings.HOGWARTS_MAIN_TABLE_NAME),
     GradeScraper(Navigator(creds)),
     TelegramNotifier(
         settings.TELEGRAM_TOKEN,

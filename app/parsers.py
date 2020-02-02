@@ -1,5 +1,5 @@
-from typing import List
 from lxml import html
+from typing import List
 from app.models import Grade
 
 

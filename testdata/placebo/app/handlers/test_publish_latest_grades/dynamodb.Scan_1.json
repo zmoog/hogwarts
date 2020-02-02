@@ -1,0 +1,86 @@
+{
+    "status_code": 200,
+    "data": {
+        "Items": [
+            {
+                "grades": {
+                    "L": [
+                        {
+                            "M": {
+                                "comment": {
+                                    "S": "bla bla"
+                                },
+                                "teacher": {
+                                    "S": "Actis Dato Cinzia"
+                                },
+                                "type": {
+                                    "S": "Orale"
+                                },
+                                "when": {
+                                    "S": "23/01/2020"
+                                },
+                                "value": {
+                                    "NULL": true
+                                },
+                                "subject": {
+                                    "S": "INGLESE"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "updated_at": {
+                    "S": "2020-01-26T09:21:25.628712"
+                },
+                "sk": {
+                    "S": "2020-01-26T09:05:35.692104"
+                },
+                "last_name": {
+                    "S": "Branca"
+                },
+                "pk": {
+                    "S": "student:00002138"
+                },
+                "first_name": {
+                    "S": "Tommaso"
+                }
+            },
+            {
+                "grades": {
+                    "L": []
+                },
+                "updated_at": {
+                    "S": "2020-01-26T09:21:25.702830"
+                },
+                "sk": {
+                    "S": "2020-01-26T09:05:35.692104"
+                },
+                "last_name": {
+                    "S": "Branca"
+                },
+                "pk": {
+                    "S": "student:00002401"
+                },
+                "first_name": {
+                    "S": "Filippo"
+                }
+            }
+        ],
+        "Count": 2,
+        "ScannedCount": 2,
+        "ResponseMetadata": {
+            "RequestId": "LD7I5VS7IISCKUT8TIPANFJE2RVV4KQNSO5AEMVJF66Q9ASUAAJG",
+            "HTTPStatusCode": 200,
+            "HTTPHeaders": {
+                "server": "Server",
+                "date": "Sun, 26 Jan 2020 08:47:51 GMT",
+                "content-type": "application/x-amz-json-1.0",
+                "content-length": "590",
+                "connection": "keep-alive",
+                "x-amzn-requestid": "LD7I5VS7IISCKUT8TIPANFJE2RVV4KQNSO5AEMVJF66Q9ASUAAJG",
+                "x-amz-crc32": "1982196888"
+            },
+            "RetryAttempts": 0
+        }
+    }
+}

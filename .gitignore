@@ -117,4 +117,4 @@ node_modules
 .DS_Store
 
 # local only resources
-local_*
+setenv*

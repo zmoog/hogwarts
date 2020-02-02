@@ -2,6 +2,7 @@ import logging
 import requests
 
 from dataclasses import dataclass
+from datetime import date
 from typing import List, Mapping
 
 from lxml import html
@@ -17,10 +18,14 @@ class Navigator:
     def __init__(self, credentials: Credentials):
         self.credentials = credentials
 
-    def fetch_red(self, student_ids: List[str]) -> Mapping[str, str]:
+    def fetch_red(self, student_ids: List[str], school_year: str, term: str) -> Mapping[str, str]:
         """
         Fetches the grades page for each given student id.
         """
+        day = date.today()
+        # school_year = '2019' # is it the school's year?
+        # ft = 'FT02' # is it the 'quadrimestre'?
+
         pages = {}
         with requests.Session() as session:
 
@@ -38,9 +43,9 @@ class Navigator:
                     '__VIEWSTATEGENERATOR': state.viewstategenerator,
                     '__EVENTVALIDATION': state.eventvalidation,
 
-                    'ctl00$ContentPlaceHolderMenu$ddlAnno': '2019',
-                    'ctl00$ContentPlaceHolderMenu$ddlFT': 'FT01',
-                    'ctl00$ContentPlaceHolderBody$txtDataSelezionataCAL': '09/12/2019',
+                    'ctl00$ContentPlaceHolderMenu$ddlAnno': school_year,
+                    'ctl00$ContentPlaceHolderMenu$ddlFT': term,
+                    'ctl00$ContentPlaceHolderBody$txtDataSelezionataCAL': day.strftime('%d/%m/%Y'),
                     'ctl00$ContentPlaceHolderBody$txtFunctionSelected': 'nothing',
                     'ctl00$ContentPlaceHolderBody$txtAluSelected': student_id, # '00002401',
                     'ctl00$ContentPlaceHolderBody$txtIDAluSelected': '0',
