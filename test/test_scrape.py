@@ -3,7 +3,7 @@ from lxml import html
 
 
 def test_registro_classe():
-    page = open('./tests/data/registro_classe.html', 'r').read()
+    page = open('./test/data/registro_classe.html', 'r').read()
     
     tree = html.fromstring(page)
 
@@ -25,8 +25,6 @@ def test_registro_classe():
             # print(td.text)
             print(td.text)
             
-
-        assert False
 
         # for td in trs:
         #     print(td)

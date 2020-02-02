@@ -30,10 +30,6 @@ def grade_scraper(navigator: Navigator) -> GradeScraper:
     return GradeScraper(navigator)
 
 
-# @pytest.fixture(scope='function')
-# def student_repository() -> StudentRepository:
-#     return StudentRepository(settings.HOGWARTS_MAIN_TABLE_NAME)
-
 @pytest.fixture(scope="function")
 def student_repository(boto_session):
     return StudentRepository(session=boto_session)
