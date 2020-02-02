@@ -18,6 +18,6 @@ class GradeScraper:
         """
         Returns all grades for each student the the ``student_ids`` list.
         """
-        pages = self.navigator.fetch_red(student_ids)
+        pages = self.navigator.fetch_red(student_ids, '2019', 'FT02')
 
         return dict(map(lambda kv: (kv[0],  extract_grades(kv[1])), pages.items()))
