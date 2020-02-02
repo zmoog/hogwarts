@@ -12,7 +12,8 @@ def test_publish(mocker, student_repository, grade_scraper, notifier):
     cases = [{
         'scraper': [
             {'00002401': [
-                Grade(when='22/01/2020', subject='GEOGRAFIA', type='Orale', value='9', comment='La collina.', teacher='Carmigno Alessandra'),
+                Grade(when='20/01/2020', subject='GEOGRAFIA', type='Orale', value='8', comment='La collina.', teacher='Carmigno Alessandra'),
+                Grade(when='21/01/2020', subject='GEOGRAFIA', type='Orale', value='9', comment='La collina.', teacher='Carmigno Alessandra'),
                 Grade(when='23/01/2020', subject='GEOGRAFIA', type='Orale', value='10', comment='La collina.', teacher='Carmigno Alessandra'),
             ]},
         ],
@@ -21,7 +22,7 @@ def test_publish(mocker, student_repository, grade_scraper, notifier):
                 '00002401',
                 'Filippo',
                 'Branca',
-                [Grade(when='22/01/2020', subject='GEOGRAFIA', type='Orale', value='9', comment='La collina.', teacher='Carmigno Alessandra')],
+                [Grade(when='21/01/2020', subject='GEOGRAFIA', type='Orale', value='9', comment='La collina.', teacher='Carmigno Alessandra')],
                 '2020-01-26T09:05:35.692104',
                 '2020-01-26T09:05:35.692104'
         )],
@@ -29,6 +30,8 @@ def test_publish(mocker, student_repository, grade_scraper, notifier):
 Ecco gli ultimi voti di Filippo:
 
 - 23/01/2020: 10 di GEOGRAFIA da Carmigno Alessandra (La collina.)
+
+- 20/01/2020: 8 di GEOGRAFIA da Carmigno Alessandra (La collina.)
 
 """
     },

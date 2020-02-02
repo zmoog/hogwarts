@@ -35,6 +35,7 @@ class PublishLatestGradesHandler:
             todays_grades = results[student.id]
 
             new_grades = list(set(todays_grades) - set(yesterdays_grades))
+            new_grades.sort(key=lambda grade: grade.when, reverse=True)
 
             self.notifier.send(
                 template.render(
