@@ -2,10 +2,12 @@ from datetime import date
 from dataclasses import dataclass
 from typing import List
 
+DATE_FORMAT = '%d/%m/%Y'
+
 
 @dataclass
 class Grade:
-    when: str
+    when: date
     subject: str
     type: str
     value: str
@@ -27,8 +29,8 @@ class Student:
     first_name: str
     last_name: str
     grades: List[Grade]
-    created_at: str
-    updated_at: str
+    created_at: date
+    updated_at: date
 
 
 @dataclass

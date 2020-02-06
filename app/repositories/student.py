@@ -4,7 +4,7 @@ from datetime import datetime
 
 import boto3
 
-from app.models import Grade, Student
+from app.models import Grade, Student, DATE_FORMAT
 from app import settings
 
 
@@ -25,19 +25,28 @@ class StudentRepository:
         """
         _student_id = 'student:{}'.format(student.id)
 
-        now = datetime.now().isoformat()
+        now = datetime.now()
 
         result = self.table.update_item(
             Key={
                 'pk': _student_id,
-                'sk': student.created_at,
+                'sk': student.created_at.isoformat(),
             },
             UpdateExpression="set first_name = :fn, last_name = :ln, grades = :g, updated_at = :u",
             ExpressionAttributeValues={
                 ':fn': student.first_name,
             ':ln': student.last_name,
-                ':g': [asdict(grade) for grade in student.grades],
-                ':u': now,
+                ':g': [
+                    dict(
+                        when=grade.when.strftime(DATE_FORMAT),
+                        subject=grade.subject,
+                        type=grade.type,
+                        value=grade.value,
+                        comment=grade.comment,
+                        teacher=grade.teacher
+                    )
+                    for grade in student.grades],
+                ':u': now.isoformat(),
             },
             ReturnValues='NONE'
         )
@@ -55,7 +64,7 @@ class StudentRepository:
             grades =[]
             for grade in item.get('grades'):
                 grades.append(Grade(
-                    grade.get('when'),
+                    datetime.strptime(grade.get('when'), DATE_FORMAT),
                     grade.get('subject'),
                     grade.get('type'),
                     grade.get('value'),
@@ -68,8 +77,8 @@ class StudentRepository:
                 item.get('first_name'),
                 item.get('last_name'),
                 grades,
-                item.get('sk'), # created_at
-                item.get('updated_at'),
+                datetime.fromisoformat(item.get('sk')), # created_at
+                datetime.fromisoformat(item.get('updated_at')),
             ))
         return students
 

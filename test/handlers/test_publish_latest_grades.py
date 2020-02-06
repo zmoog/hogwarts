@@ -1,3 +1,4 @@
+from datetime import datetime
 from app.handlers import PublishLatestGradesHandler
 from app.scrapers import GradeScraper
 from app.models import Grade, Student
@@ -11,9 +12,9 @@ def test_publish(mocker, student_repository, grade_scraper, notifier):
     cases = [{
         'scraper': [
             {'00002401': [
-                Grade(when='20/01/2020', subject='GEOGRAFIA', type='Orale', value='8', comment='La collina.', teacher='Carmigno Alessandra'),
-                Grade(when='21/01/2020', subject='GEOGRAFIA', type='Orale', value='9', comment='La collina.', teacher='Carmigno Alessandra'),
-                Grade(when='23/01/2020', subject='GEOGRAFIA', type='Orale', value='10', comment='La collina.', teacher='Carmigno Alessandra'),
+                Grade(when=datetime(2020, 1, 20), subject='GEOGRAFIA', type='Orale', value='8', comment='La collina.', teacher='Carmigno Alessandra'),
+                Grade(when=datetime(2020, 1, 21), subject='GEOGRAFIA', type='Orale', value='9', comment='La collina.', teacher='Carmigno Alessandra'),
+                Grade(when=datetime(2020, 1, 23), subject='GEOGRAFIA', type='Orale', value='10', comment='La collina.', teacher='Carmigno Alessandra'),
             ]},
         ],
         'repository': [
@@ -21,9 +22,9 @@ def test_publish(mocker, student_repository, grade_scraper, notifier):
                 '00002401',
                 'Filippo',
                 'Branca',
-                [Grade(when='21/01/2020', subject='GEOGRAFIA', type='Orale', value='9', comment='La collina.', teacher='Carmigno Alessandra')],
-                '2020-01-26T09:05:35.692104',
-                '2020-01-26T09:05:35.692104'
+                [Grade(when=datetime(2020, 1, 21), subject='GEOGRAFIA', type='Orale', value='9', comment='La collina.', teacher='Carmigno Alessandra')],
+                datetime.fromisoformat('2020-01-26T09:05:35.692104'),
+                datetime.fromisoformat('2020-01-26T09:05:35.692104')
         )],
         'result': """
 Ecco gli ultimi voti di Filippo:
@@ -37,7 +38,7 @@ Ecco gli ultimi voti di Filippo:
     {
         'scraper': [
             {'00002401': [
-                Grade(when='22/01/2020', subject='GEOGRAFIA', type='Orale', value='9', comment='La collina.', teacher='Carmigno Alessandra'),
+                Grade(when=datetime(2020, 1, 22), subject='GEOGRAFIA', type='Orale', value='9', comment='La collina.', teacher='Carmigno Alessandra'),
             ]},
         ],
         'repository': [
@@ -45,9 +46,9 @@ Ecco gli ultimi voti di Filippo:
                 '00002401',
                 'Filippo',
                 'Branca',
-                [Grade(when='22/01/2020', subject='GEOGRAFIA', type='Orale', value='9', comment='La collina.', teacher='Carmigno Alessandra')],
-                '2020-01-26T09:05:35.692104',
-                '2020-01-26T09:05:35.692104'
+                [Grade(when=datetime(2020, 1, 22), subject='GEOGRAFIA', type='Orale', value='9', comment='La collina.', teacher='Carmigno Alessandra')],
+                datetime.fromisoformat('2020-01-26T09:05:35.692104'),
+                datetime.fromisoformat('2020-01-26T09:05:35.692104')
         )],
         'result': """Oggi non ci sono nuovi voti per Filippo."""
     }]

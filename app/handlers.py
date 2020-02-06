@@ -7,7 +7,7 @@ from app.scrapers import GradeScraper
 template = Template("""{% if grades %}
 Ecco gli ultimi voti di {{ student.first_name }}:
 {% for grade in grades %}
-- {{ grade.when }}: {{ grade.value }} di {{ grade.subject }} da {{ grade.teacher }} ({{ grade.comment }})
+- {{ grade.when.strftime('%d/%m/%Y') }}: {{ grade.value }} di {{ grade.subject }} da {{ grade.teacher }} ({{ grade.comment }})
 {% endfor %}
 {% else %}Oggi non ci sono nuovi voti per {{ student.first_name }}.{% endif %}
 """)
@@ -46,4 +46,6 @@ class PublishLatestGradesHandler:
             if new_grades:
                 # store latest grades for future reference
                 student.grades += new_grades
+                # sort grades by date before saving them to the database
+                student.grades.sort(key=lambda grade: grade.when, reverse=True)
                 self.repository.update(student)
