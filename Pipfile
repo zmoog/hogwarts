@@ -4,7 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pytest = "==5.3.4"
+pytest = "==5.3.5"
 pylint = "*"
 pylama = "*"
 pytest-mock = "==2.0.0"
@@ -15,7 +15,7 @@ placebo = "*"
 [packages]
 requests = "==2.23.0"
 lxml = "==4.4.2"
-jinja2 = "==2.10.3"
+jinja2 = "==2.11.1"
 v = {editable = true,version = "*"}
 
 [requires]
