@@ -5,7 +5,7 @@ import placebo
 
 from app.models import Credentials
 from app.navigator import Navigator
-from app.scrapers import GradeScraper
+from app.scrapers import AssignmentScraper, GradeScraper
 from app.repositories.student import StudentRepository
 from app.notification.telegram import TelegramNotifier
 from app import settings
@@ -24,6 +24,10 @@ def credentials() -> Credentials:
 def navigator(credentials: Credentials) -> Navigator:
     return Navigator(credentials)
 
+
+@pytest.fixture(scope='function')
+def assignment_scraper(navigator: Navigator) -> GradeScraper:
+    return AssignmentScraper(navigator)
 
 @pytest.fixture(scope='function')
 def grade_scraper(navigator: Navigator) -> GradeScraper:

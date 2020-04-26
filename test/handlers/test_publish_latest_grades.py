@@ -6,8 +6,6 @@ data_path = f"./testdata/placebo/app/handlers/{__name__}"
 
 
 def test_publish(mocker, student_repository, grade_scraper, notifier):
-
-
     cases = [{
         'scraper': [
             {'00002401': [
@@ -55,7 +53,6 @@ Ecco gli ultimi voti di Filippo:
     mocker.patch.object(grade_scraper, "all")
     mocker.patch.object(student_repository, "all")
     mocker.patch.object(notifier, "send")
-
 
     for case in cases:
 

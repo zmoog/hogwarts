@@ -4,6 +4,12 @@ from typing import List
 
 
 @dataclass
+class Assignment:
+    when: date
+    homework: str
+
+
+@dataclass
 class Grade:
     when: str
     subject: str
@@ -20,6 +26,7 @@ class Grade:
         # string on attributes saved in DynamoDB.
         if self.comment == '':
             self.comment = '.'
+
 
 @dataclass
 class Student:
