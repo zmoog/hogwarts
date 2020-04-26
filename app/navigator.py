@@ -19,6 +19,12 @@ class Navigator:
         self.credentials = credentials
 
     def fetch_red(self, student_ids: List[str], school_year: str, term: str) -> Mapping[str, str]:
+        return self._fetch('RED' ,student_ids, school_year, term)
+
+    def fetch_rec(self, student_ids: List[str], school_year: str, term: str) -> Mapping[str, str]:
+        return self._fetch('REC' ,student_ids, school_year, term)
+
+    def _fetch(self, event_argument, student_ids: List[str], school_year: str, term: str) -> Mapping[str, str]:
         """
         Fetches the grades page for each given student id.
         """
@@ -38,7 +44,7 @@ class Navigator:
             for student_id in student_ids:
                 payload = {
                     '__EVENTTARGET': 'FAMILY',
-                    '__EVENTARGUMENT': 'RED',
+                    '__EVENTARGUMENT': event_argument,
                     '__VIEWSTATE': state.viewstate,
                     '__VIEWSTATEGENERATOR': state.viewstategenerator,
                     '__EVENTVALIDATION': state.eventvalidation,

@@ -50,6 +50,16 @@ functions:
           # disable until we're ready to test with real sensors
           enabled: true
 
+  publish_assignments:
+    handler: functions/publish_latest_assignments.handler
+    events:
+      - schedule:
+          name: ${self:service}-${opt:stage, self:provider.stage}-publish-assignments
+          # rate: cron(0/10 7-16 ? * MON-FRI *) # Run every 10 minutes Monday through Friday between 7:00 am and 3:50 pm (UTC)
+          rate: cron(0 6 ? * MON-FRI *)
+          # disable until we're ready to test with real sensors
+          enabled: true
+
 plugins:
   - serverless-python-requirements
 

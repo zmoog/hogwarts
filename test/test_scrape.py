@@ -9,7 +9,7 @@ def test_registro_classe():
 
     trs = tree.xpath('//table[@class="TableRegistroClasseGenitori"]/tbody/tr')
 
-    assert len(trs) == 2
+    assert len(trs) == 7
 
     for tr in trs:
 
