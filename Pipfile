@@ -14,7 +14,7 @@ placebo = "*"
 
 [packages]
 requests = "==2.23.0"
-lxml = "==4.5.0"
+lxml = "==4.5.1"
 jinja2 = "==2.11.2"
 v = {editable = true,version = "*"}
 
